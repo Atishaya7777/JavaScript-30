@@ -1,0 +1,72 @@
+html {
+  background: #018ded url(http://unsplash.it/1500/1000?image=881&blur=10);
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+  font-size: 10px;
+}
+
+body {
+  font-size: 2rem;
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.clock {
+  width: 30rem;
+  height: 30rem;
+  border: 20px solid white;
+  border-radius: 50%;
+  margin: 50px auto;
+  position: relative;
+  padding: 1.5rem;
+  box-shadow: 0 0 0px 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
+    inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.block-center {
+  position: absolute;
+  background: black;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+}
+
+.clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-3px); /* Account for the height of the clock's hands */
+}
+
+.hand {
+  width: 50%;
+  height: 3px;
+  background: black;
+  position: absolute;
+  top: calc(50% - 1.5px);
+  border: none;
+  border-radius: 20px;
+  transform-origin: 100%;
+  transition: all 0.005s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hour-hand {
+  height: 15px;
+  width: 30%;
+  transform-origin: 100%;
+  top: calc(50% - 7.5px);
+  left: 20%;
+}
+
+.min-hand {
+  height: 10px;
+  width: 40%;
+  top: calc(50% - 5px);
+  left: 10%;
+  transition: none;
+}

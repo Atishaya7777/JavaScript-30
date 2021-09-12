@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS variables</title>
+    <link rel="stylesheet" href="../Sass/Day 3.css" />
+  </head>
+  <body>
+    <h2>Update CSS Variables with <span class="hl">JS</span></h2>
+    <div class="controls">
+      <label for="spacing">Spacing: </label>
+      <input
+        type="range"
+        name="spacing"
+        min="10"
+        max="200"
+        value="10"
+        data-sizing="px"
+      />
+
+      <label for="blur">Blur:</label>
+      <input
+        type="range"
+        name="blur"
+        min="0"
+        max="25"
+        value="10"
+        data-sizing="px"
+      />
+
+      <label for="base">Base Color</label>
+      <input type="color" name="base" base value="#ffc600" />
+    </div>
+
+    <img
+      src="https://images.unsplash.com/photo-1496588152823-86ff7695e68f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmV3JTIweW9yayUyMGNpdHl8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"
+      alt=""
+    />
+    <script src="../JS/Day 3.js"></script>
+  </body>
+</html>

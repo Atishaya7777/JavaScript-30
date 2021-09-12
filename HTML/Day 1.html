@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drum kit</title>
+    <link rel="stylesheet" href="../Sass/Day 1.css" />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="keys">
+        <div data-key="a" class="key">
+          <kbd>A</kbd>
+          <span class="sound"> DRUM ROLL </span>
+        </div>
+        <div data-key="s" class="key">
+          <kbd>S</kbd>
+          <span class="sound"> FAIL DRUMS AND BELLS </span>
+        </div>
+        <div data-key="d" class="key">
+          <kbd>D</kbd>
+          <span class="sound"> TOY DRUMS AND BELLS </span>
+        </div>
+        <div data-key="f" class="key">
+          <kbd>F</kbd>
+          <span class="sound"> JOKE DRUMS </span>
+        </div>
+        <div data-key="g" class="key">
+          <kbd>G</kbd>
+          <span class="sound"> DRUM BASS HIT </span>
+        </div>
+        <div data-key="h" class="key">
+          <kbd>H</kbd>
+          <span class="sound"> NEGATIVE DRUMS </span>
+        </div>
+        <div data-key="j" class="key">
+          <kbd>J</kbd>
+          <span class="sound"> CARTOON TOONS </span>
+        </div>
+        <div data-key="k" class="key">
+          <kbd>K</kbd>
+          <span class="sound"> BAD JOKE DRUMS </span>
+        </div>
+        <div data-key="l" class="key">
+          <kbd>L</kbd>
+          <span class="sound"> IMPACT TRAILER </span>
+        </div>
+      </div>
+    </div>
+
+    <audio data-key="a" src="../files/sounds/drum roll.wav"></audio>
+    <audio data-key="s" src="../files/sounds/fail drums and bells.wav"></audio>
+    <audio data-key="d" src="../files/sounds/toy drums and bells.wav"></audio>
+    <audio data-key="f" src="../files/sounds/joke drums.wav"></audio>
+    <audio data-key="g" src="../files/sounds/drum bass hit.wav"></audio>
+    <audio data-key="h" src="../files/sounds/negative drums.wav"></audio>
+    <audio data-key="j" src="../files/sounds/cartoon toons.wav"></audio>
+    <audio data-key="k" src="../files/sounds/bad joke drums.wav"></audio>
+    <audio data-key="l" src="../files/sounds/impact trailer.wav"></audio>
+
+    <script>
+      window.addEventListener("keydown", (msg) => {
+        const audio = document.querySelector(`audio[data-key="${msg.key}"`);
+        const key = document.querySelector(`.key[data-key="${msg.key}"]`);
+        if (!audio) {
+          // stop the function from running all together
+          return;
+        }
+        audio.currentTime = 0; // rewind to the start after pressing it again
+        audio.play();
+        console.log(key);
+        key.classList.add("playing");
+      });
+
+      const keys = document.querySelectorAll(".key");
+
+      keys.forEach((key) => {
+        key.addEventListener("transitionend", removeTransition);
+      });
+
+      function removeTransition(msg) {
+        if (msg.propertyName !== "transform") return;
+        this.classList.remove("playing");
+      }
+    </script>
+  </body>
+</html>
